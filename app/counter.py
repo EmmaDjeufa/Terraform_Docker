@@ -8,7 +8,7 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     # Définir le chemin du fichier HTML
-    html_file = "WelcomeING3.html"
+    html_file = "ShopifyShop.html"
 
     # Vérifier si le fichier existe
     if os.path.exists(html_file):
