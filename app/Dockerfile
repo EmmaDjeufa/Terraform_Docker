@@ -1,9 +1,14 @@
-FROM python:3.8
+# Utilisez l'image officielle Redis comme base
+FROM redis:latest
 
-WORKDIR /app
+# Facultatif : vous pouvez ajouter des métadonnées pour décrire l'image
+LABEL maintainer="VotreNom <votre@email.com>"
 
-COPY ./app /app
+# Exposez le port Redis (par défaut 6379)
+EXPOSE 6379
 
-RUN pip install fastapi uvicorn
+# Commande pour exécuter Redis Server
+CMD ["redis-server"]
+RUN docker build -t mon-redis-image .
+RUN docker run -d --name mon-redis-container -p 6379:6379 mon-redis-image
 
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
