@@ -18,7 +18,7 @@ resource "docker_container" "redis" {
   image = docker_image.redis.name
   ports {
     internal = 6379 # Port Redis interne dans le conteneur
-    external = 6379 # Port Redis externe sur l'hôte
+    external = 6380 # Port Redis externe sur l'hôte
   }
 }
 
