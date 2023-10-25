@@ -22,15 +22,15 @@ provider "docker" {
 }
 
 resource "docker_image" "build" {
-  name = "nom-de-votre-image"
+  name = "redis"
   build {
-    context = "${path.module}/app"  # Chemin vers le Dockerfile
+    context = "Terraform_Docker/app"  # Chemin vers le Dockerfile
   }
 }
 
-resource "docker_container" "container" {
-  name = "nom-de-votre-container"
-  image = docker_image.build.name
+resource "docker_container" www {
+  name = www
+  image = redis.build.name
   ports {
     internal = 5000  # Port interne de votre application
   }
