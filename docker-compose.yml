@@ -1,20 +1,15 @@
 version: "3"
 services:
   www:
-    build: 
-      context: ./app  # Chemin vers le répertoire de votre application FastAPI
+    build: app
     ports:
-      - 5000:80  # Redirige le port 5000 du système hôte vers le port 80 du conteneur
-    volumes:
-      - ./app:/app
-    #ports:
-      #- ${PORT-8000}:5000
+      - ${PORT-8000}:5000
     user: nobody
     environment:
       DEBUG: 1
     command: python counter.py
-    #volumes:
-      #- ./www:/src
+    volumes:
+      - ./www:/src
   redis:
     image: redis  # il est possible de changer l'image au besoin
  
