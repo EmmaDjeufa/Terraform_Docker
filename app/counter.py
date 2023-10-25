@@ -5,6 +5,6 @@ app = FastAPI()
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    with open("index.html", "r") as html_file:
+    with open("ShopifyShop.html", "r") as html_file:
         return html_file.read()
 
