@@ -2,6 +2,7 @@ provider "docker" {
   host = "tcp://localhost:2375" # Adresse de votre serveur Docker local
 }
 
+
 resource "docker_image" "redis" {
   name = "redis:latest"
 }
