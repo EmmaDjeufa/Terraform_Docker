@@ -1,30 +1,19 @@
 provider "docker" {
-  host = "unix:///var/run/docker.sock"
+  host = "tcp://localhost:2375" # Adresse de votre serveur Docker local
 }
 
 resource "docker_image" "build" {
-  name = "redis"
-  build {
-    context = "Terraform_Docker/app"  
+  name         = "fastapi-app:latest"
+  build        {
+    context = "../app"
   }
 }
 
-resource "docker_container" www {
-  name = www
-  image = redis.build.name
+resource "docker_container" "container" {
+  name  = "fastapi-container"
+  image = docker_image.build.name
   ports {
-    internal = 5000  # Port interne de votre application
-  }
-
-  
-  environment = {
-    DEBUG = "1"
-  }
-
-  # Pour montrer comment utiliser un volume (votre Docker Compose a un volume "www")
-  volumes {
-    container_path = "/src"
-    host_path      = "./www"
-    read_only     = false
+    internal = 80
+    external = 8080
   }
 }
