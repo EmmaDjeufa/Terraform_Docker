@@ -2,8 +2,16 @@
 
 from flask import Flask, send_file
 import os
+import redis
 
 app = Flask(__name__)
+
+redis_host = "redis"
+redis_port = 6379
+
+# Création d'une instance de connexion Redis
+redis_client = redis.StrictRedis(host=redis_host, port=redis_port, db=0)
+
 
 @app.route("/")
 def index():
@@ -19,4 +27,4 @@ def index():
         return "Fichier HTML introuvable", 404
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="0.0.0.0" , port=5000)
