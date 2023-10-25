@@ -1,17 +1,16 @@
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
-import os
 
 app = FastAPI()
 
-# Obtenez le répertoire actuel où se trouve le fichier counter.py
-current_directory = os.path.dirname(os.path.realpath(__file__))
-
-# Construisez le chemin complet du fichier HTML
-#html_file_path = os.path.join(current_directory, "ShopifyShop.html")
-
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
-    with open("ShopifyShop.html", "r") as html_file:
-        return html_file.read()
+    try:
+        with open("app/ShopifyShop.html", "r") as html_file:
+            return html_file.read()
+    except FileNotFoundError:
+        # Afficher un message d'erreur si le fichier n'existe pas
+        return "Fichier HTML introuvable", 404
 
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
