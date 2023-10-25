@@ -1,4 +1,4 @@
-provider "docker" {
+provider docker {
   host = "tcp://localhost:2375" # Adresse de votre serveur Docker local
 }
 
