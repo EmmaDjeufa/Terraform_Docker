@@ -15,9 +15,11 @@ terraform version  #Permet de verrifier la version.
 
 Ensuite, on exécute :
 
+cd infra #Pour se déplacer dans le répertoite de infra
+
 terraform init
 
-terraform applay  // Prendre l'option "yes"
+terraform applay  # Prendre l'option "yes"
 
 L'infrastructure exécute alors le code counter.py qui permet d'ouvrir la page ShopifyShop.html
 
