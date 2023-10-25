@@ -1,8 +1,9 @@
-FROM python:alpine
-RUN pip install flask
-RUN pip install gunicorn
-RUN pip install redis
-COPY . /src
-WORKDIR /src
-CMD gunicorn --bind 0.0.0.0:5000 --workers 10 counter:app
-EXPOSE 5000
+FROM python:3.8
+
+WORKDIR /app
+
+COPY ./app /app
+
+RUN pip install fastapi uvicorn
+
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
