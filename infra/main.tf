@@ -20,5 +20,8 @@ resource "docker_container" "redis" {
     internal = 6379 # Port Redis interne dans le conteneur
     external = 6380 # Port Redis externe sur l'hôte
   }
+provisioner "local-exec" {
+    command = "python counter.py"
+  }
 }
 
