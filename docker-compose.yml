@@ -17,4 +17,4 @@ services:
       #- ./www:/src
   redis:
     image: redis  # il est possible de changer l'image au besoin
-    container_name: Contain_Redis
+ 
