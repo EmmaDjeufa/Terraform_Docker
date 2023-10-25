@@ -15,7 +15,7 @@ terraform version  #Permet de verrifier la version.
 
 Ensuite, on exécute :
 
-cd infra #Pour se déplacer dans le répertoite de infra
+cd infra #Pour se déplacer dans le répertoite du dossier infra
 
 terraform init
 
