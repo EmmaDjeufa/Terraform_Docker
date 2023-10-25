@@ -1,5 +1,5 @@
 provider docker {
-  host = "tcp://localhost:2375" # Adresse de votre serveur Docker local
+  source = "kreuzwerker/docker"
 }
 
 
