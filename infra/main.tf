@@ -1,7 +1,13 @@
 provider docker {
   version = "~> 2.12"
 }
-
+terraform {
+  required_providers {
+    docker = {
+      source = "kreuzwerker/docker"
+    }
+  }
+}
 
 resource "docker_image" "redis" {
   name = "redis:latest"
