@@ -27,4 +27,4 @@ def index():
 
 if __name__ == "__main__":
     # Exécutez Flask avec le port 80, car Flask fonctionnera dans un conteneur séparé.
-    app.run(host="0.0.0.0", port=80)
+    app.run(host="0.0.0.0")
