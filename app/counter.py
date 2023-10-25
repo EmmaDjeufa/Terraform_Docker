@@ -8,7 +8,7 @@ app = FastAPI()
 current_directory = os.path.dirname(os.path.realpath(__file__))
 
 # Construisez le chemin complet du fichier HTML
-html_file_path = os.path.join(current_directory, "ShopifyShop.html")
+#html_file_path = os.path.join(current_directory, "ShopifyShop.html")
 
 @app.get("/", response_class=HTMLResponse)
 async def read_root():
